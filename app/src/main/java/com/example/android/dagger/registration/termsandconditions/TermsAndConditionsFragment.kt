@@ -16,6 +16,7 @@
 
 package com.example.android.dagger.registration.termsandconditions
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -29,6 +30,11 @@ import com.example.android.dagger.registration.RegistrationViewModel
 class TermsAndConditionsFragment : Fragment() {
 
     private lateinit var registrationViewModel: RegistrationViewModel
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (activity as RegistrationActivity).registrationComponent.inject(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
